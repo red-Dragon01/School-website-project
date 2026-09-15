@@ -1,0 +1,4 @@
+export const student={name:'Aarav Sharma',id:'STU-2026-1042',className:'Class X - A',roll:'17',email:'aarav@example.com',phone:'+91 98765 43210',guardian:'Rajesh Sharma'};
+export const fees=[['Tuition Fee','₹18,000','₹18,000','Paid'],['Transport Fee','₹6,000','₹3,000','Due'],['Exam Fee','₹2,500','₹2,500','Paid'],['Activity Fee','₹1,500','₹0','Due']];
+export const routine=[['Monday','Mathematics','English','Physics','Computer'],['Tuesday','Chemistry','Mathematics','History','English'],['Wednesday','Computer','Physics','Mathematics','Bengali'],['Thursday','English','Chemistry','Computer','Mathematics'],['Friday','History','Physics','Bengali','Sports']];
+export const exams=[['18 Mar 2027','Mathematics','10:00 AM - 12:00 PM','Room 101'],['20 Mar 2027','English','10:00 AM - 12:00 PM','Room 101'],['23 Mar 2027','Physics','10:00 AM - 12:00 PM','Room 102'],['25 Mar 2027','Chemistry','10:00 AM - 12:00 PM','Room 102']];
