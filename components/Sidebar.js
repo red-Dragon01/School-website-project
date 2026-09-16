@@ -17,6 +17,7 @@ export default function Sidebar({ admin = false, teacher = false }) {
         ['Payments', '/admin/payments'],
         ['Routine', '/admin/routine'],
         ['Exams', '/admin/exams'],
+        ['Accounts', '/admin/accounts'],
       ]
     : teacher
     ? [
