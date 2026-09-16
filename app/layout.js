@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "BrightFuture Academy",
+  title: "KISHORE BHARATI SHISHU BIDYAPITH",
   description:
-    "BrightFuture Academy - School Management and Student Portal Demo",
+    "KISHORE BHARATI SHISHU BIDYAPITH- School Management, Student Portal ,teacher portal Demo",
 };
 
 export default function RootLayout({ children }) {
