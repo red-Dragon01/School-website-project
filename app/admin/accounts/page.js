@@ -1,6 +1,7 @@
- "use client";
+"use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const transactions = [
   { date: "2026-09-15", description: "Student Fees", category: "Fees", type: "Income", amount: 85000 },
@@ -27,6 +28,19 @@ export default function AccountsPage() {
   const [startDate, setStartDate] = useState("2026-09-01");
   const [endDate, setEndDate] = useState("2026-09-15");
   const [appliedCustom, setAppliedCustom] = useState(false);
+  const router = useRouter();
+  const handleLogout = async () => {
+  try {
+    await fetch("/api/owner-logout", {
+      method: "POST",
+    });
+
+    router.push("/owner-login");
+    router.refresh();
+  } catch (error) {
+    console.error("Logout failed:", error);
+  }
+};
 
   const summary = useMemo(() => {
     if (period !== "custom") return demoTotals[period];
@@ -64,26 +78,64 @@ export default function AccountsPage() {
 
   return (
     <main className="accounts-page">
-      <header className="topbar">
-        <div>
-          <p className="eyebrow">BRIGHTFUTURE ACADEMY</p>
-          <h1>School Accounts</h1>
-          <p className="muted">Track school income, expenses and balance</p>
-        </div>
+     <header className="topbar">
+  <div>
+    <p className="eyebrow">BRIGHTFUTURE ACADEMY</p>
 
-        <div className="period-area">
-          <select value={period} onChange={(e) => selectPeriod(e.target.value)}>
-            <option value="weekly">This Week</option>
-            <option value="monthly">This Month</option>
-            <option value="yearly">This Year</option>
-            <option value="custom">Custom Range</option>
-          </select>
-          <button className="custom-btn" onClick={() => setCustomOpen(true)}>
-            ⚙ Customize
-          </button>
-        </div>
-      </header>
+    <h1>School Accounts</h1>
 
+    <p className="muted">
+      Track school income, expenses and balance
+    </p>
+  </div>
+
+  <div className="header-actions">
+
+    <div className="owner-badge">
+      👤 Owner
+    </div>
+
+    <button
+      className="logout-btn"
+      onClick={handleLogout}
+    >
+      Logout →
+    </button>
+
+    <div className="period-area">
+
+      <select
+        value={period}
+        onChange={(e) => selectPeriod(e.target.value)}
+      >
+        <option value="weekly">
+          This Week
+        </option>
+
+        <option value="monthly">
+          This Month
+        </option>
+
+        <option value="yearly">
+          This Year
+        </option>
+
+        <option value="custom">
+          Custom Range
+        </option>
+      </select>
+
+      <button
+        className="custom-btn"
+        onClick={() => setCustomOpen(true)}
+      >
+        ⚙ Customize
+      </button>
+
+    </div>
+
+  </div>
+</header>
       {customOpen && (
         <section className="custom-panel">
           <div>
